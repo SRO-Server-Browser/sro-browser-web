@@ -4,7 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SRO: Server Browser System</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Discover and connect to Silkroad Online private servers instantly. SRO:SB is a smart launcher with patching, sync, and hub broadcasting.">
+  <meta name="keywords" content="Silkroad, SRO, Private Server, Server Browser, Silkroad Launcher, SRO Tools, Patch Tool, Server Hub, Client Database">
+  <meta name="author" content="KANTARCILAR, Veysel">
+  
+  <meta property="og:title" content="SRO: Server Browser System">
+  <meta property="og:description" content="Smart launcher and tools for Silkroad private servers. Browse, patch, and connect with ease.">
+  <meta property="og:image" content="https://sro-server-browser.github.io/sro-browser-web/imgs/banner_srosb.png">
+  <meta property="og:url" content="https://sro-server-browser.github.io/sro-browser-web/#">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SRO: Server Browser System">
+  <meta name="twitter:description" content="Smart launcher for Silkroad Online private servers. Sync, patch, and connect.">
+  <meta name="twitter:image" content="https://sro-server-browser.github.io/sro-browser-web/imgs/banner_srosb.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="imgs/SROSB.ico">
+  
   <style>
+  @media screen and (max-width: 600px) {
+	  header h1 {
+		font-size: 1.4rem;
+	  }
+
+	  .module h2 {
+		font-size: 1.2rem;
+	  }
+
+	  .container {
+		padding: 15px 10px;
+	  }
+
+	  .btn {
+		flex: 1 1 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		margin-right: 0; /* mobilde sağ margin kaldır */
+	  }
+
+	  .module img {
+		height: auto;
+	  }
+	}
     :root {
       --bg-main: #212325;
       --bg-secondary: #494c4f;
@@ -52,6 +97,7 @@
       border-radius: var(--radius);
       padding: 20px;
       margin: 30px 0;
+	  overflow-x: hidden;
     }
 
     .module h2 {
@@ -63,22 +109,24 @@
       font-size: 1rem;
       line-height: 1.6;
     }
+	.btn-group {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 10px;
+	  padding: 0;
+	}
 
-    .btn-group {
-      margin-top: 15px;
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: var(--btn-color);
-      color: white;
-      padding: 10px 16px;
-      text-decoration: none;
-      border-radius: var(--radius);
-      font-weight: bold;
-      margin-right: 10px;
-      transition: background 0.3s;
-    }
+	.btn {
+	  display: inline-block;
+	  background-color: var(--btn-color);
+	  color: white;
+	  padding: 10px 16px;
+	  text-decoration: none;
+	  border-radius: var(--radius);
+	  font-weight: bold;
+	  margin-right: 10px;
+	  transition: background 0.3s;
+	}
 
     .btn:hover {
       background-color: var(--btn-active);
@@ -111,7 +159,6 @@
   }
   
   </style>
-  <link rel="icon" type="image/x-icon" href="imgs\SROSB.ico">
 </head>
 <body>
 
@@ -123,7 +170,7 @@
 <div class="container">
 
   <div class="module"style="background: transparent;">
-  <img src="imgs\banner_srosb.png">
+  <img src="imgs/banner_srosb.png">
   </div>
 
   <!-- Quick Access Buttons -->
@@ -131,8 +178,9 @@
     <h2>🧭 SRO:SB – Server Browser</h2>
     <p>A smart launcher for players to browse, patch, and connect to private Silkroad servers with ease.</p>
     <div class="btn-group">
-      <a href="#sb-details" class="btn">Learn More</a>
-      <a href="#" class="btn">Download</a>
+      <a href="#sb-details" class="btn">📖Learn More</a>
+      <a href="#" class="btn">💻 Windows</a>
+      <a href="#" class="btn">⚙️ Development</a>
     </div>
   </div>
 
@@ -140,8 +188,9 @@
     <h2>📡 SRO:SH – Server Hub</h2>
     <p>Broadcast your private server to the world through a minimal and secure background service.</p>
     <div class="btn-group">
-      <a href="#sh-details" class="btn">Learn More</a>
-      <a href="#" class="btn">Download</a>
+      <a href="#sb-details" class="btn">📖Learn More</a>
+      <a href="#" class="btn">💻 Windows</a>
+      <a href="#" class="btn">⚙️ Development</a>
     </div>
   </div>
 
@@ -149,8 +198,8 @@
     <h2>💾 SRO:CD – Client Database</h2>
     <p>A central reference client repo to streamline patching and reduce bandwidth usage.</p>
     <div class="btn-group">
-      <a href="#cd-details" class="btn">Learn More</a>
-      <a href="#" class="btn">View GitHub</a>
+      <a href="#sb-details" class="btn">📖Learn More</a>
+      <a href="#" class="btn">⚙️ Development</a>
     </div>
   </div>
 

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SRO: Server Browser System</title>
+  <style>
+    :root {
+      --bg-main: #212325;
+      --bg-secondary: #494c4f;
+      --text-color: #90969d;
+      --btn-color: #206aa5;
+      --btn-active: #154870;
+      --box-bg: #343638;
+      --radius: 5px;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: var(--btn-color);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header img {
+      height: 40px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    h1 {
+      margin: 10px 0;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .module {
+      background-color: var(--box-bg);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin: 30px 0;
+    }
+
+    .module h2 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .module p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .btn-group {
+      margin-top: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--btn-color);
+      color: white;
+      padding: 10px 16px;
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-weight: bold;
+      margin-right: 10px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--btn-active);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      margin: 40px 0;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .btn {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+	
+  .module img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* or "contain" eğer tam sığsın ama kırpılmasın istiyorsan */
+    display: block;
+  }
+  
+  </style>
+  <link rel="icon" type="image/x-icon" href="imgs\SROSB.ico">
+</head>
+<body>
+
+<header>
+  <h1>SRO: Server Browser System</h1>
+  <p>Discover servers. Sync clients. Connect instantly.</p>
+</header>
+
+<div class="container">
+
+  <div class="module"style="background: transparent;">
+  <img src="imgs\banner_srosb.png">
+  </div>
+
+  <!-- Quick Access Buttons -->
+  <div class="module">
+    <h2>🧭 SRO:SB – Server Browser</h2>
+    <p>A smart launcher for players to browse, patch, and connect to private Silkroad servers with ease.</p>
+    <div class="btn-group">
+      <a href="#sb-details" class="btn">Learn More</a>
+      <a href="#" class="btn">Download</a>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>📡 SRO:SH – Server Hub</h2>
+    <p>Broadcast your private server to the world through a minimal and secure background service.</p>
+    <div class="btn-group">
+      <a href="#sh-details" class="btn">Learn More</a>
+      <a href="#" class="btn">Download</a>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>💾 SRO:CD – Client Database</h2>
+    <p>A central reference client repo to streamline patching and reduce bandwidth usage.</p>
+    <div class="btn-group">
+      <a href="#cd-details" class="btn">Learn More</a>
+      <a href="#" class="btn">View GitHub</a>
+    </div>
+  </div>
+
+  <!-- Detailed Sections -->
+  <div id="sb-details" class="module">
+    <h2>🧭 SRO:SB – Detailed Overview</h2>
+    <p>
+      The Server Browser (SB) is a desktop launcher designed for players. It automatically pulls server data from the central HUB,
+      compares it with your local client, and downloads only the necessary differences. Players can connect to any server via a
+      local proxy, eliminating the need for manual IP edits or full client reinstalls.
+    </p>
+    <ul>
+      <li>Live server list with status, ping, language, and player count</li>
+      <li>Patch only what's needed via delta-syncing</li>
+      <li>Optional automatic account registration (if server allows SQL access)</li>
+      <li>Minimal UI, compatible with low-end systems</li>
+    </ul>
+  </div>
+
+  <div id="sh-details" class="module">
+    <h2>📡 SRO:SH – Detailed Overview</h2>
+    <p>
+      The Server Hub (SH) is a tiny process that server owners run alongside their server machine.
+      It reads a `.cfg` file to publish your server info (name, description, ports, etc.) to the central browser.
+    </p>
+    <ul>
+      <li>Secure, read-only config sharing</li>
+      <li>Optional SQL bridge for account creation</li>
+      <li>Runs silently in the background</li>
+    </ul>
+  </div>
+
+  <div id="cd-details" class="module">
+    <h2>💾 SRO:CD – Detailed Overview</h2>
+    <p>
+      The Client Database (CD) is an open-source repository containing the reference Silkroad client.
+      Server admins fork it, apply their edits, and push only their modified files (or diffs).
+    </p>
+    <ul>
+      <li>Saves bandwidth for players</li>
+      <li>Easy maintenance and version tracking for server admins</li>
+      <li>Public, transparent, and decentralized</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  Made with ❤️ for the Silkroad community · <a href="#">GitHub</a>
+  <div style="background-color: #1a1c1e; padding: 20px 0; margin-top: 40px;">
+  <div style="max-width: 960px; margin: auto; padding: 0 20px;">
+    <h3 style="color: #90969d; font-size: 1rem;">Supported by</h3>
+    <div style="overflow: hidden; white-space: nowrap; margin-top: 10px;">
+      <a href="https://www.vsro.org/" target="_blank" style="display: inline-block; margin-right: 30px;">
+        <img src="https://www.vsro.org/yedekler/xenforo-logo.png" alt="vsro" style="height: 40px; vertical-align: middle;">
+      </a>
+      <a href="https://www.elitepvpers.com/" target="_blank" style="display: inline-block; margin-right: 30px;">
+        <img src="https://www.elitepvpers.com/images/pvp_white.gif" alt="elitepvpers" style="height: 40px; vertical-align: middle;">
+      </a>
+      <a href="https://srocave.com/" target="_blank" style="display: inline-block;">
+        <img src="https://srocave.com/styles/default/xenforo/xenforo-logo.png" alt="srocave" style="height: 40px; vertical-align: middle;">
+      </a>
+    </div>
+  </div>
+</div>
+
+</footer>
+
+</body>
+</html>
+

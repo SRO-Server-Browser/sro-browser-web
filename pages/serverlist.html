@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SRO: Server Browser System</title>
+  <link rel="icon" type="image/x-icon" href="../imgs/SROSB.ico">
+  <link rel="stylesheet" href="../static/styles.css">
+  <style>
+    /* Extra styles for sticky header & filter bar */
+    .filter-bar {
+      position: sticky;
+      top: 0;
+      padding: 10px;
+      z-index: 99;
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid #444;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 5px;
+      font-size: 14px;
+    }
+    .server-table th {
+      cursor: pointer;
+    }
+    .server-table th.sort-asc::after {
+      content: " 🔼";
+    }
+    .server-table th.sort-desc::after {
+      content: " 🔽";
+    }
+    .status-icon {
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    .online { background-color: #4caf50; }
+    .offline { background-color: #f44336; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SRO: Server Browser System</h1>
+  <p>Discover servers. Sync clients. Connect instantly.</p>
+	<div class="lang-switcher">
+      <a href="../index.html" class="btn">♚</a>
+	</div>
+</header>
+
+<div class="container">
+
+  <div class="module" style="background: transparent;">
+    <img src="../imgs/banner_srosb.png" />
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <input type="text" id="nameFilter" placeholder="Search server name..." />
+    <select id="statusFilter">
+      <option value="">All</option>
+      <option value="Online">Online</option>
+      <option value="Offline">Offline</option>
+    </select>
+  </div>
+
+  <!-- Server List -->
+  <div class="module">
+    <h2>Server List</h2>
+    <table class="server-table" id="serverTable">
+      <thead>
+        <tr>
+          <th data-sort="name">Name</th>
+          <th>Language</th>
+          <th data-sort="players">Players</th>
+          <th>Ping</th>
+          <th>Location</th>
+          <th data-sort="status">Status</th>
+          <th>Website</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-name="Silkroad Alpha" data-status="Online" data-players="123" onclick="window.open('https://silkroad-alpha.example.com', '_blank')">
+          <td>Silkroad Alpha</td>
+          <td>EN</td>
+          <td>123</td>
+          <td>87ms</td>
+          <td>Germany</td>
+          <td><span class="status-icon online"></span>Online</td>
+          <td><a href="https://silkroad-alpha.example.com" target="_blank">Visit</a></td>
+        </tr>
+        <tr data-name="Han Empire" data-status="Online" data-players="99" onclick="window.open('https://han-empire.example.com', '_blank')">
+          <td>Han Empire</td>
+          <td>TR</td>
+          <td>99</td>
+          <td>120ms</td>
+          <td>Turkey</td>
+          <td><span class="status-icon online"></span>Online</td>
+          <td><a href="https://han-empire.example.com" target="_blank">Visit</a></td>
+        </tr>
+        <tr data-name="Mystic Road" data-status="Offline" data-players="85" onclick="window.open('https://mystic-road.example.com', '_blank')">
+          <td>Mystic Road</td>
+          <td>EN</td>
+          <td>85</td>
+          <td>150ms</td>
+          <td>USA</td>
+          <td><span class="status-icon offline"></span>Offline</td>
+          <td><a href="https://mystic-road.example.com" target="_blank">Visit</a></td>
+        </tr>
+        <tr data-name="Golden Path" data-status="Online" data-players="210" onclick="window.open('https://golden-path.example.com', '_blank')">
+          <td>Golden Path</td>
+          <td>RU</td>
+          <td>210</td>
+          <td>65ms</td>
+          <td>Russia</td>
+          <td><span class="status-icon online"></span>Online</td>
+          <td><a href="https://golden-path.example.com" target="_blank">Visit</a></td>
+        </tr>
+        <tr data-name="Eastern Legends" data-status="Offline" data-players="45" onclick="window.open('https://eastern-legends.example.com', '_blank')">
+          <td>Eastern Legends</td>
+          <td>CN</td>
+          <td>45</td>
+          <td>200ms</td>
+          <td>China</td>
+          <td><span class="status-icon offline"></span>Offline</td>
+          <td><a href="https://eastern-legends.example.com" target="_blank">Visit</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+  const nameFilter = document.getElementById("nameFilter");
+  const statusFilter = document.getElementById("statusFilter");
+  const rows = document.querySelectorAll("#serverTable tbody tr");
+
+  function filterTable() {
+    const nameVal = nameFilter.value.toLowerCase();
+    const statusVal = statusFilter.value;
+
+    rows.forEach(row => {
+      const name = row.dataset.name.toLowerCase();
+      const status = row.dataset.status;
+      row.style.display = (
+        name.includes(nameVal) && (statusVal === "" || status === statusVal)
+      ) ? "" : "none";
+    });
+  }
+
+  nameFilter.addEventListener("input", filterTable);
+  statusFilter.addEventListener("change", filterTable);
+
+  // Sorting
+  document.querySelectorAll("th[data-sort]").forEach(th => {
+    th.addEventListener("click", () => {
+      const key = th.dataset.sort;
+      const tbody = th.closest("table").querySelector("tbody");
+      const rowsArray = Array.from(tbody.querySelectorAll("tr"));
+
+      const currentSort = th.classList.contains("sort-asc") ? "asc" : 
+                          th.classList.contains("sort-desc") ? "desc" : null;
+
+      document.querySelectorAll("th").forEach(t => t.classList.remove("sort-asc", "sort-desc"));
+
+      const newSort = currentSort === "asc" ? "desc" : "asc";
+      th.classList.add(newSort === "asc" ? "sort-asc" : "sort-desc");
+
+      rowsArray.sort((a, b) => {
+        let aVal = a.dataset[key] || "";
+        let bVal = b.dataset[key] || "";
+        if (!isNaN(aVal)) { aVal = +aVal; bVal = +bVal; }
+        return newSort === "asc" ? aVal > bVal ? 1 : -1 : aVal < bVal ? 1 : -1;
+      });
+
+      rowsArray.forEach(row => tbody.appendChild(row));
+    });
+  });
+</script>
+
+</body>
+</html>

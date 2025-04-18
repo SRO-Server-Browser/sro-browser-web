@@ -105,7 +105,7 @@
 <script>
 async function fetchServers() {
   try {
-    const response = await fetch('../data/servers.json');
+    const response = await fetch(`../data/servers.json?ts=${Date.now()}`);
     if (!response.ok) throw new Error('Failed to fetch servers');
     const servers = await response.json();
     return servers;
@@ -114,6 +114,7 @@ async function fetchServers() {
     return [];
   }
 }
+
 
 function renderServers(servers) {
   const tbody = document.getElementById('serverTableBody');

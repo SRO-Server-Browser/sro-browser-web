@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Silkroad Alpha",
+    "language": "EN",
+    "players": 123,
+    "ping": 87,
+    "location": "Germany",
+    "status": "Online",
+    "website": "https://silkroad-alpha.example.com"
+  },
+  {
+    "name": "Han Empire",
+    "language": "TR",
+    "players": 99,
+    "ping": 120,
+    "location": "Turkey",
+    "status": "Online",
+    "website": "https://han-empire.example.com"
+  },
+  {
+    "name": "Mystic Road",
+    "language": "EN",
+    "players": 85,
+    "ping": 150,
+    "location": "USA",
+    "status": "Offline",
+    "website": "https://mystic-road.example.com"
+  },
+  {
+    "name": "Golden Path",
+    "language": "RU",
+    "players": 210,
+    "ping": 65,
+    "location": "Russia",
+    "status": "Online",
+    "website": "https://golden-path.example.com"
+  },
+  {
+    "name": "Eastern Legends",
+    "language": "CN",
+    "players": 45,
+    "ping": 200,
+    "location": "China",
+    "status": "Offline",
+    "website": "https://eastern-legends.example.com"
+  }
+]

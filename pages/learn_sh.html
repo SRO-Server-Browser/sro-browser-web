@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SRO: Server Browser System</title>
+  
+  <meta name="description" content="SRO:SH is a lightweight service for Silkroad Online private server admins to broadcast server details securely to the SRO:SB ecosystem." />
+  <meta name="keywords" content="Silkroad Online, private servers, server hub, server broadcasting, SRO, Silkroad, game server, server admin, SRO:SH, game tools" />
+  <meta name="author" content="KANTARCILAR, Veysel" />
+  <meta property="og:title" content="SRO: Server Browser System - Server Hub" />
+  <meta property="og:description" content="SRO:SH is a lightweight service for Silkroad Online private server admins to broadcast server details securely to the SRO:SB ecosystem." />
+  <meta property="og:image" content="../imgs/banner_srosb.png" />
+  <meta property="og:url" content="https://sro-server-browser.github.io/sro-browser-web/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SRO: Server Browser System - Server Hub" />
+  <meta name="twitter:description" content="SRO:SH is a lightweight service for Silkroad Online private server admins to broadcast server details securely to the SRO:SB ecosystem." />
+  <meta name="twitter:image" content="../imgs/banner_srosb.png" />
+  
+  <link rel="icon" type="image/x-icon" href="../imgs/SROSB.ico">
+  <link rel="stylesheet" href="../static/styles.css">
+  <style>
+    .lang-section { display: none; }
+    .active-lang { display: block; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="top-menu">
+    <div class="menu-links">
+      <a href="../index.html" class="menu-btn">♚</a>
+      <a href="serverlist.html" class="menu-btn">♛</a>
+      <a href="learn_sb.html" class="menu-btn">♜</a>
+      <a href="#" class="menu-btn">♞</a>
+      <a href="learn_cd.html" class="menu-btn">♝</a>
+		<a href="about.html" class="menu-btn">♟</a>
+    </div>
+  </div>
+  <h1>SRO: Server Browser System</h1>
+  <p>Discover servers. Sync clients. Connect instantly.</p>
+    <div class="lang-switcher">
+      <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+      <button class="lang-btn" onclick="changeLanguage('tr')">TR</button>
+    </div>
+</header>
+
+<div class="container">
+  <div class="module" style="background: transparent;">
+    <img src="../imgs/banner_srosb.png" alt="SRO:SB Banner"/>
+  </div>
+
+  <div id="en" class="lang-section active-lang">
+    <div class="module">
+      <h2>📡 SRO:SH – Server Hub</h2>
+      <p>SRO:SH is a minimal and secure background service designed for Silkroad Online private server administrators to broadcast their server details to the SRO:SB ecosystem, making it discoverable to players worldwide.</p>
+
+      <h3>🔧 Key Features</h3>
+      <ul>
+        <li>Secure, read-only configuration sharing via `.cfg` files</li>
+        <li>Real-time server status updates (online/offline, player count)</li>
+        <li>Optional SQL bridge for automated account creation</li>
+        <li>Low resource usage, runs silently in the background</li>
+        <li>Encrypted communication with the central hub</li>
+      </ul>
+
+      <h3>🌍 Why Use SRO:SH?</h3>
+      <p>Server admins often struggle to make their servers visible to the Silkroad community. SRO:SH solves this by:</p>
+      <ul>
+        <li>Providing a plug-and-play solution for server broadcasting</li>
+        <li>Ensuring secure data transmission with encryption</li>
+        <li>Supporting automated player account management</li>
+        <li>Integrating seamlessly with SRO:SB and SRO:CD</li>
+      </ul>
+
+      <h3>⚙️ Technical Overview</h3>
+      <p>Built with Python, SRO:SH uses TCP communication with JSON payloads for efficient and secure data exchange. It is optimized for minimal CPU and memory usage, making it suitable for low-end server hardware.</p>
+
+      <h3>🧪 Status</h3>
+      <p>SRO:SH is stable and actively used by multiple private servers. Future updates will include enhanced monitoring tools and broader database support.</p>
+
+      <h3>📥 Installation & Usage</h3>
+      <p>Available as a standalone binary on GitHub. Configuration is done via a simple `.cfg` file. Detailed setup guides are provided in the repository.</p>
+
+      <h3>🤝 Contributions Welcome</h3>
+      <p>Contribute to SRO:SH by:</p>
+      <ul>
+        <li>Improving documentation and localization</li>
+        <li>Adding support for additional database types</li>
+        <li>Enhancing security features</li>
+        <li>Testing and bug reporting</li>
+      </ul>
+
+      <p>Made with ❤️ by the Silkroad community, for the Silkroad community.</p>
+    </div>
+  </div>
+
+  <div id="tr" class="lang-section">
+    <div class="module">
+      <h2>📡 SRO:SH – Sunucu Merkezi</h2>
+      <p>SRO:SH, Silkroad Online özel sunucu yöneticileri için geliştirilmiş, sunucu detaylarını SRO:SB ekosistemine güvenli ve minimal bir şekilde yayınlayan bir arka plan servisidir.</p>
+
+      <h3>🔧 Temel Özellikler</h3>
+      <ul>
+        <li>`.cfg` dosyaları ile güvenli, salt okunur yapılandırma paylaşımı</li>
+        <li>Gerçek zamanlı sunucu durumu güncellemeleri (çevrimiçi/çevrimdışı, oyuncu sayısı)</li>
+        <li>Otomatik hesap oluşturma için opsiyonel SQL köprüsü</li>
+        <li>Düşük kaynak kullanımı, arka planda sessizce çalışır</li>
+        <li>Merkezi hub ile şifreli iletişim</li>
+      </ul>
+
+      <h3>🌍 Neden SRO:SH?</h3>
+      <p>Sunucu yöneticileri, sunucularını topluluğa duyurmakta zorlanabilir. SRO:SH bunu şu yollarla çözer:</p>
+      <ul>
+        <li>Kolay kurulumlu bir yayın çözümü sunar</li>
+        <li>Şifreli veri aktarımı ile güvenliği sağlar</li>
+        <li>Otomatik oyuncu hesabı yönetimini destekler</li>
+        <li>SRO:SB ve SRO:CD ile sorunsuz entegrasyon</li>
+      </ul>
+
+      <h3>⚙️ Teknik Özellikler</h3>
+      <p>Python ile geliştirilen SRO:SH, TCP üzerinden JSON veri alışverişi ile güvenli ve verimli iletişim sağlar. Minimal CPU ve bellek kullanımı için optimize edilmiştir, düşük donanımlı sunucularda çalışabilir.</p>
+
+      <h3>🧪 Durum</h3>
+      <p>SRO:SH stabildir ve birden fazla özel sunucu tarafından kullanılmaktadır. Gelecek güncellemeler, gelişmiş izleme araçları ve daha geniş veritabanı desteği içerecek.</p>
+
+      <h3>📥 Kurulum ve Kullanım</h3>
+      <p>GitHub'da bağımsız bir ikili dosya olarak mevcuttur. Yapılandırma, basit bir `.cfg` dosyası ile yapılır. Depoda detaylı kurulum kılavuzları bulunmaktadır.</p>
+
+      <h3>🤝 Katkı Sağlayın</h3>
+      <p>SRO:SH projesine şu alanlarda katkıda bulunabilirsiniz:</p>
+      <ul>
+        <li>Dökümantasyon ve çeviri</li>
+        <li>Ek veritabanı türleri için destek</li>
+        <li>Güvenlik özelliklerini geliştirme</li>
+        <li>Test ve hata raporlama</li>
+      </ul>
+
+      <p>Silkroad topluluğu tarafından, Silkroad topluluğu için ❤️ ile yapıldı.</p>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+window.addEventListener('scroll', () => {
+  const topMenu = document.querySelector('.top-menu');
+  if (window.scrollY > 10) {
+    topMenu.classList.add('scrolled');
+  } else {
+    topMenu.classList.remove('scrolled');
+  }
+});
+
+function changeLanguage(lang) {
+  document.getElementById('en').classList.remove('active-lang');
+  document.getElementById('tr').classList.remove('active-lang');
+  document.getElementById(lang).classList.add('active-lang');
+}
+</script>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SRO: Server Browser System</title>
+  
+  <meta name="description" content="SRO:CD is an open-source client database for Silkroad Online private servers, enabling efficient patching and synchronization." />
+  <meta name="keywords" content="Silkroad Online, private servers, client database, server synchronization, SRO, Silkroad, game server, server admin, SRO:CD, game tools" />
+  <meta name="author" content="KANTARCILAR, Veysel" />
+  <meta property="og:title" content="SRO: Server Browser System - Client Database" />
+  <meta property="og:description" content="SRO:CD is an open-source client database for Silkroad Online private servers, enabling efficient patching and synchronization." />
+  <meta property="og:image" content="../imgs/banner_srosb.png" />
+  <meta property="og:url" content="https://sro-server-browser.github.io/sro-browser-web/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SRO: Server Browser System - Client Database" />
+  <meta name="twitter:description" content="SRO:CD is an open-source client database for Silkroad Online private servers, enabling efficient patching and synchronization." />
+  <meta name="twitter:image" content="../imgs/banner_srosb.png" />
+  
+  <link rel="icon" type="image/x-icon" href="../imgs/SROSB.ico">
+  <link rel="stylesheet" href="../static/styles.css">
+  <style>
+    .lang-section { display: none; }
+    .active-lang { display: block; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="top-menu">
+    <div class="menu-links">
+      <a href="../index.html" class="menu-btn">♚</a>
+      <a href="serverlist.html" class="menu-btn">♛</a>
+      <a href="learn_sb.html" class="menu-btn">♜</a>
+      <a href="learn_sh.html" class="menu-btn">♞</a>
+      <a href="#" class="menu-btn">♝</a>
+		<a href="about.html" class="menu-btn">♟</a>
+    </div>
+  </div>
+  <h1>SRO: Server Browser System</h1>
+  <p>Discover servers. Sync clients. Connect instantly.</p>
+    <div class="lang-switcher">
+      <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+      <button class="lang-btn" onclick="changeLanguage('tr')">TR</button>
+    </div>
+</header>
+
+<div class="container">
+  <div class="module" style="background: transparent;">
+    <img src="../imgs/banner_srosb.png" alt="SRO:SB Banner"/>
+  </div>
+
+  <div id="en" class="lang-section active-lang">
+    <div class="module">
+      <h2>💾 SRO:CD – Client Database</h2>
+      <p>SRO:CD is an open-source GitHub repository that serves as a centralized reference for Silkroad Online client modifications, enabling efficient patching and synchronization for players and server admins.</p>
+
+      <h3>🔧 Key Features</h3>
+      <ul>
+        <li>Hosts reference Silkroad client files</li>
+        <li>Supports delta patching for minimal bandwidth usage</li>
+        <li>Version control for easy maintenance and updates</li>
+        <li>Public and transparent, encouraging community contributions</li>
+        <li>Compatible with SRO:SB for seamless integration</li>
+      </ul>
+
+      <h3>🌍 Why Use SRO:CD?</h3>
+      <p>Patching and maintaining Silkroad clients can be resource-intensive. SRO:CD addresses this by:</p>
+      <ul>
+        <li>Reducing bandwidth usage with delta patches</li>
+        <li>Simplifying version management for server admins</li>
+        <li>Providing a transparent and decentralized repository</li>
+        <li>Supporting community-driven updates and fixes</li>
+      </ul>
+
+      <h3>⚙️ Technical Overview</h3>
+      <p>SRO:CD leverages Git for version control, allowing server admins to fork the repository, apply custom modifications, and push only the differences. It integrates with SRO:SB’s delta-sync engine for efficient client updates.</p>
+
+      <h3>🧪 Status</h3>
+      <p>SRO:CD is fully operational, with active contributions from the community. Future plans include automated diff generation and enhanced documentation.</p>
+
+      <h3>📥 Installation & Usage</h3>
+      <p>Server admins can fork the SRO:CD repository on GitHub and follow the provided guides to integrate their modifications. Players access it automatically via SRO:SB.</p>
+
+      <h3>🤝 Contributions Welcome</h3>
+      <p>Contribute to SRO:CD by:</p>
+      <ul>
+        <li>Submitting client fixes and updates</li>
+        <li>Improving documentation and tutorials</li>
+        <li>Testing compatibility with different server setups</li>
+        <li>Adding support for new client versions</li>
+      </ul>
+
+      <p>Made with ❤️ by the Silkroad community, for the Silkroad community.</p>
+    </div>
+  </div>
+
+  <div id="tr" class="lang-section">
+    <div class="module">
+      <h2>💾 SRO:CD – İstemci Veritabanı</h2>
+      <p>SRO:CD, Silkroad Online istemci modifikasyonları için merkezi bir referans olarak hizmet veren, oyuncular ve sunucu yöneticileri için verimli yama ve senkronizasyon sağlayan açık kaynaklı bir GitHub deposudur.</p>
+
+      <h3>🔧 Temel Özellikler</h3>
+      <ul>
+        <li>Referans Silkroad istemci dosyalarını barındırır</li>
+        <li>Minimal bant genişliği için delta yama desteği</li>
+        <li>Kolay bakım ve güncellemeler için sürüm kontrolü</li>
+        <li>Herkese açık ve şeffaf, topluluk katkılarını teşvik eder</li>
+        <li>SRO:SB ile sorunsuz entegrasyon</li>
+      </ul>
+
+      <h3>🌍 Neden SRO:CD?</h3>
+      <p>Silkroad istemcilerinin yamalanması ve bakımı kaynak yoğun olabilir. SRO:CD bunu şu yollarla çözer:</p>
+      <ul>
+        <li>Delta yamalarla bant genişliği kullanımını azaltır</li>
+        <li>Sunucu yöneticileri için sürüm yönetimini basitleştirir</li>
+        <li>Şeffaf ve merkeziyetsiz bir depo sağlar</li>
+        <li>Topluluk odaklı güncelleme ve düzeltmeleri destekler</li>
+      </ul>
+
+      <h3>⚙️ Teknik Özellikler</h3>
+      <p>SRO:CD, sürüm kontrolü için Git kullanır, sunucu yöneticilerinin depoyu çatallayıp özel modifikasyonlar uygulamasına ve sadece farklılıkları göndermesine olanak tanır. SRO:SB’nin delta-sync motoru ile entegredir.</p>
+
+      <h3>🧪 Durum</h3>
+      <p>SRO:CD tamamen işlevseldir ve topluluk tarafından aktif olarak katkıda bulunulmaktadır. Gelecek planları, otomatik fark oluşturma ve geliştirilmiş dökümantasyon içerir.</p>
+
+      <h3>📥 Kurulum ve Kullanım</h3>
+      <p>Sunucu yöneticileri, GitHub’daki SRO:CD deposunu çatallayabilir ve modifikasyonlarını entegre etmek için sağlanan kılavuzları takip edebilir. Oyuncular, SRO:SB üzerinden otomatik olarak erişir.</p>
+
+      <h3>🤝 Katkı Sağlayın</h3>
+      <p>SRO:CD projesine şu alanlarda katkıda bulunabilirsiniz:</p>
+      <ul>
+        <li>İstemci düzeltmeleri ve güncellemeleri gönderme</li>
+        <li>Dökümantasyon ve eğitimleri geliştirme</li>
+        <li>Farklı sunucu kurulumlarıyla uyumluluk testi</li>
+        <li>Yeni istemci sürümleri için destek ekleme</li>
+      </ul>
+
+      <p>Silkroad topluluğu tarafından, Silkroad topluluğu için ❤️ ile yapıldı.</p>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+window.addEventListener('scroll', () => {
+  const topMenu = document.querySelector('.top-menu');
+  if (window.scrollY > 10) {
+    topMenu.classList.add('scrolled');
+  } else {
+    topMenu.classList.remove('scrolled');
+  }
+});
+
+function changeLanguage(lang) {
+  document.getElementById('en').classList.remove('active-lang');
+  document.getElementById('tr').classList.remove('active-lang');
+  document.getElementById(lang).classList.add('active-lang');
+}
+</script>
+</html>

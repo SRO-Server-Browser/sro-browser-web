@@ -7,7 +7,6 @@
   <link rel="icon" type="image/x-icon" href="../imgs/SROSB.ico">
   <link rel="stylesheet" href="../static/styles.css">
   <style>
-    /* Extra styles for sticky header & filter bar */
     .filter-bar {
       position: sticky;
       top: 0;
@@ -42,21 +41,24 @@
   </style>
 </head>
 <body>
-
 <header>
   <div class="top-menu">
-  <div class="menu-links">
-      <a href="../index.html" class="btn">♚</a>
-    <a href="#" class="btn">♛</a>
-  </div></div>
+    <div class="menu-links">
+      <a href="../index.html" class="menu-btn">♚</a>
+      <a href="#" class="menu-btn">♛</a>
+      <a href="learn_sb.html" class="menu-btn">♜</a>
+      <a href="learn_sh.html" class="menu-btn">♞</a>
+      <a href="learn_cd.html" class="menu-btn">♝</a>
+      <a href="about.html" class="menu-btn">♟</a>
+    </div>
+  </div>
   <h1>SRO: Server Browser System</h1>
   <p>Discover servers. Sync clients. Connect instantly.</p>
 </header>
 
 <div class="container">
-
   <div class="module" style="background: transparent;">
-    <img src="../imgs/banner_srosb.png" />
+    <img src="../imgs/banner_srosb.png" alt="SRO:SB Banner"/>
   </div>
 
   <!-- Filter Bar -->
@@ -67,133 +69,142 @@
       <option value="Online">Online</option>
       <option value="Offline">Offline</option>
     </select>
+    <select id="languageFilter">
+      <option value="">All Languages</option>
+      <option value="EN">English</option>
+      <option value="TR">Turkish</option>
+      <option value="CN">Chinese</option>
+      <option value="RU">Russian</option>
+    </select>
   </div>
 
   <!-- Server List -->
   <div class="module">
     <h2>Server List</h2>
-	<div class="table-wrapper">
-    <table class="server-table" id="serverTable">
-      <thead>
-        <tr>
-          <th data-sort="name">Name</th>
-          <th>Language</th>
-          <th data-sort="players">Players</th>
-          <th>Ping</th>
-          <th>Location</th>
-          <th data-sort="status">Status</th>
-          <th>Website</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr data-name="Silkroad Alpha" data-status="Online" data-players="123" onclick="window.open('https://silkroad-alpha.example.com', '_blank')">
-          <td>Silkroad Alpha</td>
-          <td>EN</td>
-          <td>123</td>
-          <td>87ms</td>
-          <td>Germany</td>
-          <td><span class="status-icon online"></span>Online</td>
-          <td><a href="https://silkroad-alpha.example.com" target="_blank">Visit</a></td>
-        </tr>
-        <tr data-name="Han Empire" data-status="Online" data-players="99" onclick="window.open('https://han-empire.example.com', '_blank')">
-          <td>Han Empire</td>
-          <td>TR</td>
-          <td>99</td>
-          <td>120ms</td>
-          <td>Turkey</td>
-          <td><span class="status-icon online"></span>Online</td>
-          <td><a href="https://han-empire.example.com" target="_blank">Visit</a></td>
-        </tr>
-        <tr data-name="Mystic Road" data-status="Offline" data-players="85" onclick="window.open('https://mystic-road.example.com', '_blank')">
-          <td>Mystic Road</td>
-          <td>EN</td>
-          <td>85</td>
-          <td>150ms</td>
-          <td>USA</td>
-          <td><span class="status-icon offline"></span>Offline</td>
-          <td><a href="https://mystic-road.example.com" target="_blank">Visit</a></td>
-        </tr>
-        <tr data-name="Golden Path" data-status="Online" data-players="210" onclick="window.open('https://golden-path.example.com', '_blank')">
-          <td>Golden Path</td>
-          <td>RU</td>
-          <td>210</td>
-          <td>65ms</td>
-          <td>Russia</td>
-          <td><span class="status-icon online"></span>Online</td>
-          <td><a href="https://golden-path.example.com" target="_blank">Visit</a></td>
-        </tr>
-        <tr data-name="Eastern Legends" data-status="Offline" data-players="45" onclick="window.open('https://eastern-legends.example.com', '_blank')">
-          <td>Eastern Legends</td>
-          <td>CN</td>
-          <td>45</td>
-          <td>200ms</td>
-          <td>China</td>
-          <td><span class="status-icon offline"></span>Offline</td>
-          <td><a href="https://eastern-legends.example.com" target="_blank">Visit</a></td>
-        </tr>
-      </tbody>
-    </table>
-	</div>
+    <div class="table-wrapper">
+      <table class="server-table" id="serverTable">
+        <thead>
+          <tr>
+            <th data-sort="name">Name</th>
+            <th>Language</th>
+            <th data-sort="players">Players</th>
+            <th>Ping</th>
+            <th>Location</th>
+            <th data-sort="status">Status</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody id="serverTableBody">
+          <!-- Dynamically populated -->
+        </tbody>
+      </table>
+    </div>
   </div>
-
 </div>
 
 <script>
-  const nameFilter = document.getElementById("nameFilter");
-  const statusFilter = document.getElementById("statusFilter");
-  const rows = document.querySelectorAll("#serverTable tbody tr");
-
-  function filterTable() {
-    const nameVal = nameFilter.value.toLowerCase();
-    const statusVal = statusFilter.value;
-
-    rows.forEach(row => {
-      const name = row.dataset.name.toLowerCase();
-      const status = row.dataset.status;
-      row.style.display = (
-        name.includes(nameVal) && (statusVal === "" || status === statusVal)
-      ) ? "" : "none";
-    });
+async function fetchServers() {
+  try {
+    const response = await fetch('../data/servers.json');
+    if (!response.ok) throw new Error('Failed to fetch servers');
+    const servers = await response.json();
+    return servers;
+  } catch (error) {
+    console.error('Error fetching servers:', error);
+    return [];
   }
+}
 
-  nameFilter.addEventListener("input", filterTable);
-  statusFilter.addEventListener("change", filterTable);
+function renderServers(servers) {
+  const tbody = document.getElementById('serverTableBody');
+  tbody.innerHTML = '';
 
-  // Sorting
-  document.querySelectorAll("th[data-sort]").forEach(th => {
-    th.addEventListener("click", () => {
+  servers.forEach(server => {
+    const tr = document.createElement('tr');
+    tr.dataset.name = server.name;
+    tr.dataset.status = server.status;
+    tr.dataset.players = server.players;
+    tr.dataset.language = server.language;
+    tr.onclick = () => window.open(server.website, '_blank');
+
+    tr.innerHTML = `
+      <td>${server.name}</td>
+      <td>${server.language}</td>
+      <td>${server.players}</td>
+      <td>${server.ping}ms</td>
+      <td>${server.location}</td>
+      <td><span class="status-icon ${server.status.toLowerCase()}"></span>${server.status}</td>
+      <td><a href="${server.website}" target="_blank">Visit</a></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function filterTable() {
+  const nameVal = document.getElementById('nameFilter').value.toLowerCase();
+  const statusVal = document.getElementById('statusFilter').value;
+  const languageVal = document.getElementById('languageFilter').value;
+
+  const rows = document.querySelectorAll('#serverTable tbody tr');
+  rows.forEach(row => {
+    const name = row.dataset.name.toLowerCase();
+    const status = row.dataset.status;
+    const language = row.dataset.language;
+    row.style.display = (
+      name.includes(nameVal) &&
+      (statusVal === '' || status === statusVal) &&
+      (languageVal === '' || language === languageVal)
+    ) ? '' : 'none';
+  });
+}
+
+function setupSorting() {
+  document.querySelectorAll('th[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
       const key = th.dataset.sort;
-      const tbody = th.closest("table").querySelector("tbody");
-      const rowsArray = Array.from(tbody.querySelectorAll("tr"));
+      const tbody = th.closest('table').querySelector('tbody');
+      const rowsArray = Array.from(tbody.querySelectorAll('tr'));
 
-      const currentSort = th.classList.contains("sort-asc") ? "asc" : 
-                          th.classList.contains("sort-desc") ? "desc" : null;
+      const currentSort = th.classList.contains('sort-asc') ? 'asc' :
+                         th.classList.contains('sort-desc') ? 'desc' : null;
 
-      document.querySelectorAll("th").forEach(t => t.classList.remove("sort-asc", "sort-desc"));
+      document.querySelectorAll('th').forEach(t => t.classList.remove('sort-asc', 'sort-desc'));
 
-      const newSort = currentSort === "asc" ? "desc" : "asc";
-      th.classList.add(newSort === "asc" ? "sort-asc" : "sort-desc");
+      const newSort = currentSort === 'asc' ? 'desc' : 'asc';
+      th.classList.add(newSort === 'asc' ? 'sort-asc' : 'sort-desc');
 
       rowsArray.sort((a, b) => {
-        let aVal = a.dataset[key] || "";
-        let bVal = b.dataset[key] || "";
+        let aVal = a.dataset[key] || '';
+        let bVal = b.dataset[key] || '';
         if (!isNaN(aVal)) { aVal = +aVal; bVal = +bVal; }
-        return newSort === "asc" ? aVal > bVal ? 1 : -1 : aVal < bVal ? 1 : -1;
+        return newSort === 'asc' ? aVal > bVal ? 1 : -1 : aVal < bVal ? 1 : -1;
       });
 
       rowsArray.forEach(row => tbody.appendChild(row));
     });
   });
-  
-  window.addEventListener('scroll', () => {
-    const topMenu = document.querySelector('.top-menu');
-    if (window.scrollY > 10) {
-      topMenu.classList.add('scrolled');
-    } else {
-      topMenu.classList.remove('scrolled');
-    }
-  });
-</script>
+}
 
+async function init() {
+  const servers = await fetchServers();
+  renderServers(servers);
+
+  document.getElementById('nameFilter').addEventListener('input', filterTable);
+  document.getElementById('statusFilter').addEventListener('change', filterTable);
+  document.getElementById('languageFilter').addEventListener('change', filterTable);
+  setupSorting();
+}
+
+window.addEventListener('scroll', () => {
+  const topMenu = document.querySelector('.top-menu');
+  if (window.scrollY > 10) {
+    topMenu.classList.add('scrolled');
+  } else {
+    topMenu.classList.remove('scrolled');
+  }
+});
+
+init();
+</script>
 </body>
 </html>

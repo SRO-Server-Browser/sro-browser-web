@@ -31,10 +31,15 @@
 <body>
 
 <header>
+  <div class="top-menu">
+  <div class="menu-links">
+      <a href="#" class="btn">♚</a>
+    <a href="pages/serverlist.html" class="btn">♛</a>
+  </div></div>
   <h1>SRO: Server Browser System</h1>
   <p>Discover servers. Sync clients. Connect instantly.</p>
 	<div class="lang-switcher">
-      <a href="pages/serverlist.html" class="btn">♛</a>
+      
 	  <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
 	  <button class="lang-btn" onclick="changeLanguage('tr')">TR</button>
 	  <button class="lang-btn" onclick="changeLanguage('ar')">AR</button>
@@ -308,7 +313,14 @@ function changeLanguage(lang) {
     }
   });
 }
-
+  window.addEventListener('scroll', () => {
+    const topMenu = document.querySelector('.top-menu');
+    if (window.scrollY > 10) {
+      topMenu.classList.add('scrolled');
+    } else {
+      topMenu.classList.remove('scrolled');
+    }
+  });
 // Initial load
 changeLanguage('en');
 </script>

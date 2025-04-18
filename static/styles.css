@@ -34,12 +34,12 @@
     }
 
     .lang-switcher {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      gap: 10px;
-    }
+	  top: 10px; /* kaldır */
+	  align-self: flex-end; /* bu eklensin */
+	  display: flex;
+	  gap: 10px;
+	  margin-bottom: 10px;
+	}
     .lang-btn {
       background: rgba(255,255,255,0.2);
       border: none;
@@ -64,7 +64,11 @@
     header {
       background-color: var(--btn-active);
       padding: 20px;
-      text-align: center;
+	  text-align: center;
+	  position: relative;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
     }
 
     header img {
@@ -157,6 +161,13 @@
   cursor: pointer;
 }
 
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.server-table {
+  min-width: 700px; /* Tablonun çok dar görünmesini engeller */
+}
 .server-table th,
 .server-table td {
   padding: 12px 8px;
@@ -202,3 +213,99 @@ input[type="text"]:focus,
 select:focus {
   border-color: var(--btn-color);
 }
+
+.top-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--box-bg);
+  padding: 10px 20px;
+  border-bottom: 1px solid #444;
+}
+
+.menu-links {
+  display: flex;
+  gap: 10px;
+}
+
+.menu-btn {
+  background: var(--btn-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.menu-btn:hover {
+  background: var(--btn-active);
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 10px;
+}
+
+/*Top Menü*/
+.top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--box-bg);
+  padding: 10px 20px;
+  border-bottom: 1px solid #444;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+.top-menu.scrolled {
+  background-color: rgba(52, 54, 56, 0.8); /* hafif şeffaflık */
+  backdrop-filter: blur(4px); /* soft blur */
+}
+
+body {
+  padding-top: 60px; /* top menü yüksekliği kadar boşluk bırak */
+}
+
+.menu-links {
+  display: flex;
+  gap: 10px;
+}
+
+.menu-btn {
+  background: var(--btn-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.menu-btn:hover {
+  background: var(--btn-active);
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .top-menu {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .menu-links,
+  .lang-switcher {
+    justify-content: center;
+  }
+}
+

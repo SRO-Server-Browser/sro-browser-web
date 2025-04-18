@@ -47,10 +47,19 @@
   {
     "name": "Silvarya",
     "language": "TR",
+    "players": 3,
+    "ping": 50,
+    "location": "China",
+    "status": "Online",
+    "website": "https://silvarya.com.tr"
+  },
+  {
+    "name": "Han Wudi Edition - SRO",
+    "language": "TR",
     "players": 0,
     "ping": 200,
     "location": "China",
-    "status": "Online",
+    "status": "Offline",
     "website": "https://silvarya.com.tr"
   }
 ]

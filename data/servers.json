@@ -5,7 +5,7 @@
     "players": 123,
     "ping": 87,
     "location": "Germany",
-    "status": "Online",
+    "status": "Offline",
     "website": "https://silkroad-alpha.example.com"
   },
   {
@@ -14,7 +14,7 @@
     "players": 99,
     "ping": 120,
     "location": "Turkey",
-    "status": "Online",
+    "status": "Offline",
     "website": "https://han-empire.example.com"
   },
   {
@@ -32,7 +32,7 @@
     "players": 210,
     "ping": 65,
     "location": "Russia",
-    "status": "Online",
+    "status": "Offline",
     "website": "https://golden-path.example.com"
   },
   {
@@ -43,5 +43,14 @@
     "location": "China",
     "status": "Offline",
     "website": "https://eastern-legends.example.com"
+  },
+  {
+    "name": "Silvarya",
+    "language": "TR",
+    "players": 0,
+    "ping": 200,
+    "location": "China",
+    "status": "Online",
+    "website": "https://silvarya.com.tr"
   }
 ]

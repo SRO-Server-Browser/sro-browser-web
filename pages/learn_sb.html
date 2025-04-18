@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SRO: Server Browser System</title>
+  
+	<meta name="description" content="Discover Silkroad Online private servers with ease. SRO:SB offers a real-time server browser, synchronization tools, and an efficient way for players and server admins to stay connected." />
+	<meta name="keywords" content="Silkroad Online, private servers, server browser, server synchronization, SRO, Silkroad, game server, server admin, gaming community, SRO:SB, game tools" />
+	<meta name="author" content="Silkroad Enthusiast" />
+	<meta property="og:title" content="SRO: Server Browser System" />
+	<meta property="og:description" content="Discover Silkroad Online private servers with ease. SRO:SB offers a real-time server browser and synchronization tools for players and server admins." />
+	<meta property="og:image" content="../imgs/banner_srosb.png" />
+	<meta property="og:url" content="your-website-url.com" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="SRO: Server Browser System" />
+	<meta name="twitter:description" content="Discover Silkroad Online private servers with ease. SRO:SB offers a real-time server browser and synchronization tools for players and server admins." />
+	<meta name="twitter:image" content="../imgs/banner_srosb.png" />
+  
+  <link rel="icon" type="image/x-icon" href="../imgs/SROSB.ico">
+  <link rel="stylesheet" href="../static/styles.css">
+  <style>
+    /* Hide all language sections by default */
+    .lang-section {
+      display: none;
+    }
+
+    /* Show active language section */
+    .active-lang {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="top-menu">
+  <div class="menu-links">
+      <a href="../index.html" class="btn">♚</a>
+    <a href="#" class="btn">♛</a>
+  </div></div>
+  <h1>SRO: Server Browser System</h1>
+  <p>Discover servers. Sync clients. Connect instantly.</p>
+	<div class="lang-switcher">
+		<button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+		<button class="lang-btn" onclick="changeLanguage('tr')">TR</button>
+	</div>
+</header>
+
+<div class="container">
+  <div class="module" style="background: transparent;">
+    <img src="../imgs/banner_srosb.png" />
+  </div>
+
+	<div id="en" class="lang-section active-lang">
+		<div class="module">
+    <h2>🧭 SRO:SB – Server Browser</h2>
+    <p>This modern and lightweight system is designed to help players find, synchronize, and connect to Silkroad Online private servers effortlessly. Whether you're a server admin or a player, SRO:SB provides a seamless experience.</p>
+
+    <h3>📦 System Components</h3>
+    <h4>🔹 SRO:SB – Server Browser</h4>
+    <p><strong>For Players:</strong> A desktop client that provides real-time server listings with detailed server metadata such as ping, player count, description, language, website, and more. Enjoy delta synchronization, which allows you to download only modified files, reducing data usage and sync time.</p>
+    <img src="https://i.imgur.com/54cBRje.png" alt="Server Browser View" width="300"/>
+
+    <h4>🔹 SRO:SH – Server Hub</h4>
+    <p><strong>For Server Admins:</strong> A lightweight background service that communicates with your private server and sends updates to a centralized hub. It supports SQL database integration for remote account creation.</p>
+
+    <h4>🔹 SRO:CD – Client Database</h4>
+    <p><strong>For Synchronization:</strong> An open-source GitHub repository that stores Silkroad client modifications. Players only download the differences, saving bandwidth and time.</p>
+
+    <h3>🌍 Why This Project?</h3>
+    <p>The Silkroad private server community is vibrant but fragmented. This project addresses key issues:</p>
+    <ul>
+      <li>Centralized, reliable list of active servers</li>
+      <li>Clear server status and metadata</li>
+      <li>Eliminating the need for constant full client downloads</li>
+      <li>Automation in account creation and patching</li>
+    </ul>
+
+    <h3>⚙️ Technical Overview</h3>
+    <p>Built using Python's asyncio for non-blocking I/O, with TCP communication using JSON payloads. Optimized for low bandwidth and processing power, this system is fully operational on Android-based Linux systems (e.g. Termux).</p>
+
+    <h3>🧪 Status</h3>
+    <p>The core system is fully functional. A GUI-based version is currently under development.</p>
+
+    <h3>📥 Installation & Usage</h3>
+    <p>Release binaries and documentation will be available soon. For now, manual setup is possible for advanced users.</p>
+
+    <h3>🤝 Contributions Welcome</h3>
+    <p>We encourage contributions in the following areas:</p>
+    <ul>
+      <li>Documentation & localization</li>
+      <li>GUI development</li>
+      <li>Server/client integration</li>
+      <li>Community management & testing</li>
+    </ul>
+
+    <p>Made with ❤️ by a Silkroad enthusiast, for the Silkroad community.</p>
+  </div>
+	</div>
+  <!-- Turkish Version -->
+	<div id="tr" class="lang-section">
+		<div class="module">
+    <h2>🧭 SRO:Sunucu Tarayıcı Sistemi</h2>
+    <p>Silkroad Online özel sunucularını keşfetmek, senkronize etmek ve bağlanmak için geliştirilen modern ve hafif bir altyapı. Bu proje, oyuncular ve sunucu sahipleri için süreçleri daha verimli hale getirmeyi hedefliyor.</p>
+
+    <h3>📦 Sistem Bileşenleri</h3>
+    <h4>🔹 SRO:SB – Server Browser</h4>
+    <p><strong>Oyuncular için:</strong> Gerçek zamanlı sunucu listeleri ve ping, oyuncu sayısı, açıklama, dil, web sitesi gibi sunucu bilgilerini sağlar. Ayrıca sadece değiştirilen dosyaları indirmenizi sağlayarak veri kullanımını ve senkronizasyon süresini azaltan delta senkronizasyon özelliği sunar.</p>
+    <img src="https://i.imgur.com/54cBRje.png" alt="Server Browser View" width="300"/>
+
+    <h4>🔹 SRO:SH – Server Hub</h4>
+    <p><strong>Sunucu sahipleri için:</strong> Sunucu yazılımı ile birlikte çalışan hafif bir arka plan hizmetidir. Merkezi bir HUB'a düzenli güncellemeler gönderir. İsteğe bağlı olarak SQL veritabanı ile kullanıcı oluşturma desteği sunar.</p>
+
+    <h4>🔹 SRO:CD – Client Database</h4>
+    <p><strong>Referans ve senkronizasyon için:</strong> Silkroad istemci modifikasyonlarını barındıran açık kaynaklı bir GitHub deposudur. Oyuncular sadece değişen dosyaları indirir, böylece bant genişliği ve zaman tasarrufu sağlanır.</p>
+
+    <h3>🌍 Neden Bu Sistem?</h3>
+    <p>Silkroad özel sunucu topluluğu canlı ancak dağınıktır. Bu sistem şu sorunları çözmeyi hedefler:</p>
+    <ul>
+      <li>Aktif sunucuların merkezi ve güvenilir listesi yok</li>
+      <li>Sunucu durumları ve bilgileri belirsiz</li>
+      <li>Sürekli baştan istemci indirme zorunluluğu</li>
+      <li>Hesap oluşturma ve yama işlemlerinde otomasyon eksikliği</li>
+    </ul>
+
+    <h3>⚙️ Teknik Özellikler</h3>
+    <p>Python (asyncio) kullanılarak eş zamanlı ve bloklamayan bir yapı ile geliştirilmiştir. TCP + JSON veri alışverişi yapılır. Bant genişliği ve işlemci yükü düşük ortamlarda çalışacak şekilde optimize edilmiştir.</p>
+
+    <h3>🧪 Geliştirme Durumu</h3>
+    <p>Sistem, temel fonksiyonlarıyla tamamen çalışmaktadır. GUI sürümü geliştirilmektedir.</p>
+
+    <h3>📥 Kurulum ve Kullanım</h3>
+    <p>Yakında kuruluma hazır paketler ve dökümantasyon yayımlanacaktır. Şu anda ileri düzey kullanıcılar için manuel kurulum mümkündür.</p>
+
+    <h3>🤝 Katkı Sağlayın</h3>
+    <p>Bu projeye katkıda bulunabileceğiniz alanlar:</p>
+    <ul>
+      <li>Dokümantasyon ve çeviri</li>
+      <li>GUI / istemci geliştirme</li>
+      <li>Sunucu entegrasyonu ve testler</li>
+      <li>Topluluk desteği</li>
+    </ul>
+
+    <p>Silkroad topluluğu için bir Silkroad tutkunu tarafından ❤️ ile geliştirildi.</p>
+  </div>
+	</div>
+</div>
+
+</body>
+<script>
+  window.addEventListener('scroll', () => {
+    const topMenu = document.querySelector('.top-menu');
+    if (window.scrollY > 10) {
+      topMenu.classList.add('scrolled');
+    } else {
+      topMenu.classList.remove('scrolled');
+    }
+  });
+    function changeLanguage(lang) {
+    // Hide both sections
+    document.getElementById('en').classList.remove('active-lang');
+    document.getElementById('tr').classList.remove('active-lang');
+    
+    // Show the selected language
+    document.getElementById(lang).classList.add('active-lang');
+  }
+</script>
+</html>

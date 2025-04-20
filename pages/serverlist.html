@@ -7,37 +7,38 @@
   <link rel="icon" type="image/x-icon" href="../imgs/SROSB.ico">
   <link rel="stylesheet" href="../static/styles.css">
   <style>
-    .filter-bar {
-      position: sticky;
-      top: 0;
-      padding: 10px;
-      z-index: 99;
-      display: flex;
-      gap: 10px;
-      border-bottom: 1px solid #444;
-    }
-    .filter-bar input, .filter-bar select {
-      padding: 5px;
-      font-size: 14px;
-    }
-    .server-table th {
-      cursor: pointer;
-    }
-    .server-table th.sort-asc::after {
-      content: " 🔼";
-    }
-    .server-table th.sort-desc::after {
-      content: " 🔽";
-    }
-    .status-icon {
-      height: 12px;
-      width: 12px;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 5px;
-    }
-    .online { background-color: #4caf50; }
-    .offline { background-color: #f44336; }
+.filter-bar {
+  position: sticky;
+  top: 0;
+  padding: 10px;
+  z-index: 99;
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid #444;
+  flex-wrap: wrap;
+  overflow-x: auto; /* Ekran kaymasını engellemek için */
+}
+
+.filter-bar input, .filter-bar select {
+  padding: 5px;
+  font-size: 14px;
+  min-width: 120px; /* Genişlik sınırlaması ekledim */
+  max-width: 100%; /* Tam genişlikte olacak şekilde */
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+  .filter-bar {
+    padding: 8px; /* Daha küçük mobil cihazlar için padding azaltıldı */
+    gap: 5px; /* Aralarındaki mesafeyi azaltmak için */
+  }
+
+  .filter-bar input, .filter-bar select {
+    font-size: 12px; /* Mobilde yazı boyutunu küçültme */
+    width: 100%; /* Tam genişlik */
+  }
+}
+
   </style>
 </head>
 <body>

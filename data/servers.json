@@ -1,20 +1,11 @@
 [
   {
-    "name": "Dragon Server",
-    "language": "EN",
-    "players": 150,
-    "ping": 55.0,
-    "location": "Jangan",
-    "status": "online",
-    "website": "https://dragon.srosb.com"
-  },
-  {
-    "name": "Phoenix Server",
-    "language": "TR",
-    "players": 80,
-    "ping": 100,
-    "location": "Hotan",
-    "status": "offline",
-    "website": "#"
+    "name": "Silvarya",
+    "language": "TR/EN",
+    "players": 0,
+    "ping": 126.13333333333333,
+    "location": "CH/EU",
+    "status": "Offline",
+    "website": "www.silvarya.com.tr"
   }
 ]

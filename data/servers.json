@@ -1,65 +1,20 @@
 [
   {
-    "name": "Silkroad Alpha",
+    "name": "Dragon Server",
     "language": "EN",
-    "players": 123,
-    "ping": 87,
-    "location": "Germany",
-    "status": "Offline",
-    "website": "https://silkroad-alpha.example.com"
+    "players": 150,
+    "ping": 55.0,
+    "location": "Jangan",
+    "status": "online",
+    "website": "https://dragon.srosb.com"
   },
   {
-    "name": "Han Empire",
+    "name": "Phoenix Server",
     "language": "TR",
-    "players": 99,
-    "ping": 120,
-    "location": "Turkey",
-    "status": "Offline",
-    "website": "https://han-empire.example.com"
-  },
-  {
-    "name": "Mystic Road",
-    "language": "EN",
-    "players": 85,
-    "ping": 150,
-    "location": "USA",
-    "status": "Offline",
-    "website": "https://mystic-road.example.com"
-  },
-  {
-    "name": "Golden Path",
-    "language": "RU",
-    "players": 210,
-    "ping": 65,
-    "location": "Russia",
-    "status": "Offline",
-    "website": "https://golden-path.example.com"
-  },
-  {
-    "name": "Eastern Legends",
-    "language": "CN",
-    "players": 45,
-    "ping": 200,
-    "location": "China",
-    "status": "Offline",
-    "website": "https://eastern-legends.example.com"
-  },
-  {
-    "name": "Silvarya",
-    "language": "TR",
-    "players": 3,
-    "ping": 50,
-    "location": "China",
-    "status": "Online",
-    "website": "https://silvarya.com.tr"
-  },
-  {
-    "name": "Han Wudi Edition - SRO",
-    "language": "TR",
-    "players": 0,
-    "ping": 200,
-    "location": "China",
-    "status": "Offline",
-    "website": "https://silvarya.com.tr"
+    "players": 80,
+    "ping": 100,
+    "location": "Hotan",
+    "status": "offline",
+    "website": "#"
   }
 ]

@@ -2,10 +2,10 @@
   {
     "name": "Silvarya",
     "language": "TR/EN",
-    "players": 1,
-    "ping": 118.896,
+    "players": 0,
+    "ping": 100,
     "location": "CH/EU",
-    "status": "Online",
+    "status": "Offline",
     "website": "www.silvarya.com.tr"
   }
 ]

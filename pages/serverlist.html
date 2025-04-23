@@ -153,7 +153,10 @@ function renderServers(servers) {
     tr.dataset.status = server.status;
     tr.dataset.players = server.players;
     tr.dataset.language = server.language;
-    tr.onclick = () => window.open(server.website, '_blank');
+    tr.onclick = () => window.open(
+      server.website.startsWith('http') ? server.website : 'https://' + server.website,
+      '_blank'
+    );
 
     tr.innerHTML = `
       <td>${server.name}</td>

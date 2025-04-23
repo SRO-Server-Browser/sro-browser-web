@@ -29,7 +29,36 @@
   <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
+<style>
+.info-header {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    padding: 20px;
+    background-color: var(--box-bg);
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 10px;
+    position: fixed;
+    top: 50%;
+    left: 0;  /* Solda hizalama */
+    transform: translateY(0);  /* Vertical movement */
+    transition: transform 0.1s ease-out;
+}
 
+.info-header-item {
+    border-radius: 5px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media (max-width: 1220px) {
+    .info-header {
+        display: none;
+    }
+}
+</style>
 <header>
   <div class="top-menu">
   <div class="menu-links">
@@ -48,9 +77,22 @@
 	  <button class="lang-btn" onclick="changeLanguage('tr')">TR</button>
 	  <button class="lang-btn" onclick="changeLanguage('ar')">AR</button>
 	</div>
-
+  
 </header>
+<div class="info-header">
+  <div class="info-header-item">
+    <img src="https://img.shields.io/badge/dynamic/json?color=blue&label=Active%20Servers&query=$.active_servers&url=https://sro-server-browser.github.io/sro-browser-web/data/info.json" alt="Active Servers">
 
+  </div>
+  <div class="info-header-item">
+    <img src="https://img.shields.io/badge/dynamic/json?color=blue&label=Active%20Players&query=$.active_players&url=https://sro-server-browser.github.io/sro-browser-web/data/info.json" alt="Active Players">
+
+  </div>
+  <div class="info-header-item">
+    <img src="https://img.shields.io/badge/dynamic/json?color=blue&label=Players%20In%20Game&query=$.players_in_game&url=https://sro-server-browser.github.io/sro-browser-web/data/info.json" alt="Players In Game">
+
+  </div>
+</div>
 <div class="container">
 
   <div class="module"style="background: transparent;">
@@ -332,6 +374,13 @@ function changeLanguage(lang) {
     } else {
       topMenu.classList.remove('scrolled');
     }
+    
+    const infoHeader = document.querySelector(".info-header");
+    const scrollPosition = window.scrollY;
+
+    // Scroll ile orantılı bir hızda hareket etmesini sağla
+    const speed = -0.8; // Hızı kontrol etmek için bir katsayı
+    infoHeader.style.transform = `translateY(${scrollPosition * speed}px)`;
   });
 // Initial load
 changeLanguage('en');

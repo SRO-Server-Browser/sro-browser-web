@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SRO: Server Browser System</title>
+  
+  <meta name="description" content="SRO:CD is an open-source client database for Silkroad Online private servers, enabling efficient patching and synchronization." />
+  <meta name="keywords" content="Silkroad Online, private servers, client database, server synchronization, SRO, Silkroad, game server, server admin, SRO:CD, game tools" />
+  <meta name="author" content="KANTARCILAR, Veysel" />
+  <meta property="og:title" content="SRO: Server Browser System - Client Database" />
+  <meta property="og:description" content="SRO:CD is an open-source client database for Silkroad Online private servers, enabling efficient patching and synchronization." />
+  <meta property="og:image" content="../imgs/banner_srosb.png" />
+  <meta property="og:url" content="https://sro-server-browser.github.io/sro-browser-web/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SRO: Server Browser System - Client Database" />
+  <meta name="twitter:description" content="SRO:CD is an open-source client database for Silkroad Online private servers, enabling efficient patching and synchronization." />
+  <meta name="twitter:image" content="../imgs/banner_srosb.png" />
+  
+  <link rel="icon" type="image/x-icon" href="../imgs/SROSB.ico">
+  <link rel="stylesheet" href="../static/styles.css">
+  <style>
+    :root {
+      --bg-main: #212325;
+      --bg-secondary: #494c4f;
+      --text-color: #90969d;
+      --btn-color: #206aa5;
+      --btn-active: #154870;
+      --box-bg: #343638;
+      --radius: 5px;
+    }
+
+    .server-profile {
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: var(--radius);
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+}
+
+.server-profile h2 {
+    margin-top: 0;
+    text-align: center;
+    border-bottom: 1px solid var(--text-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.server-profile .info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #666;
+    padding-bottom: 5px;
+}
+
+.server-profile .status {
+    font-weight: bold;
+    color: green;
+}
+
+.server-profile .colour {
+    font-size: 14px;
+    color: #90969d;
+    margin-top: 10px;
+}
+
+.server-profile a {
+    text-decoration: none;
+    color: var(--btn-color);
+    font-weight: bold;
+}
+.colour-flag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.colour-box {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--radius);
+    border: 1px solid #666;
+}
+
+  </style>
+</head>
+<body>
+<header>
+  <div class="top-menu">
+    <div class="menu-links">
+      <a href="../index.html" class="menu-btn">♚</a>
+      <a href="serverlist.html" class="menu-btn">♛</a>
+      <a href="learn_sb.html" class="menu-btn">♜</a>
+      <a href="learn_sh.html" class="menu-btn">♞</a>
+      <a href="#" class="menu-btn">♝</a>
+      <a href="about.html" class="menu-btn">♟</a>
+    </div>
+  </div>
+  <h1>SRO: Server Browser System</h1>
+  <p>Discover servers. Sync clients. Connect instantly.</p>
+</header>
+
+<div class="container">
+  <div class="module" style="background: transparent;">
+    <h2>Server Details</h2>
+
+    <!-- Server profile details displayed here -->
+    <div id="serverProfile" class="server-profile" style="display:none;">
+      <h2 id="serverNameDisplay"></h2>
+      <div class="info">
+        <div><strong>Language:</strong> <span id="serverLanguage"></span></div>
+        <div><strong>Players:</strong> <span id="serverPlayers"></span></div>
+      </div>
+      <div class="info">
+        <div><strong>Ping:</strong> <span id="serverPing"></span></div>
+        <div><strong>Location:</strong> <span id="serverLocation"></span></div>
+      </div>
+      <div class="info">
+        <div><strong>Status:</strong> <span id="serverStatus" class="status"></span></div>
+        <div><strong>Type:</strong> <span id="serverType"></span></div>
+      </div>
+      <div class="colour-flag">
+        <strong>Flag:</strong> <span id="serverColourBox" class="colour-box"></span>
+      </div>
+      <p><strong>Description:</strong> <span id="serverDescription"></span></p>
+      <p><a id="serverWebsite" href="#" target="_blank">Visit Website</a></p>
+    </div>
+  </div>
+
+  <a href="https://discord.gg/Cfbwsgad" target="_blank" class="discord-button">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" />
+  </a>
+</div>
+
+<script>
+window.addEventListener('scroll', () => {
+  const topMenu = document.querySelector('.top-menu');
+  if (window.scrollY > 10) {
+    topMenu.classList.add('scrolled');
+  } else {
+    topMenu.classList.remove('scrolled');
+  }
+});
+
+// Get the server name from the URL query parameters
+const urlParams = new URLSearchParams(window.location.search);
+const serverName = urlParams.get('serverName'); // Example: serverName=ServerX
+
+if (serverName) {
+  fetch('../data/servers.json')
+    .then(response => response.json())
+    .then(data => {
+      // Find the server that matches the input name
+      const server = data.find(s => s.name.toLowerCase() === serverName.toLowerCase());
+
+      if (server) {
+        // Update the UI with server info
+        document.getElementById('serverProfile').style.display = 'block';
+        document.getElementById('serverNameDisplay').textContent = server.name;
+        document.getElementById('serverLanguage').textContent = server.language;
+        document.getElementById('serverPlayers').textContent = server.players;
+        document.getElementById('serverPing').textContent = server.ping;
+        document.getElementById('serverLocation').textContent = server.location;
+        document.getElementById('serverStatus').textContent = server.status;
+        document.getElementById('serverType').textContent = server.type;
+        document.getElementById('serverDescription').textContent = server.description;
+        document.getElementById('serverWebsite').href = `https://${server.website}`;
+        document.getElementById('serverColourBox').style.backgroundColor = server.colour;
+
+        // Change status color based on status
+        if (server.status === 'Online') {
+          document.getElementById('serverStatus').style.color = 'green';
+        } else {
+          document.getElementById('serverStatus').style.color = 'red';
+        }
+      } else {
+        alert('Server not found!');
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching server data:', error);
+    });
+} else {
+  alert('No server specified!');
+}
+</script>
+</body>
+</html>

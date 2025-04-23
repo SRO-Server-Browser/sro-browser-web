@@ -3,9 +3,12 @@
     "name": "Silvarya",
     "language": "TR/EN",
     "players": 0,
-    "ping": 124.46099999999998,
+    "ping": "61.69",
     "location": "CH/EU",
     "status": "Online",
-    "website": "www.silvarya.com.tr"
+    "website": "www.silvarya.com.tr",
+    "description": "this is a private server",
+    "colour": "white",
+    "type": "Deathmatch"
   }
 ]

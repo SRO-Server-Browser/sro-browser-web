@@ -129,10 +129,68 @@
     }
 
     footer {
+      background-color: #1c1c1c;
+      color: #ccc;
+      font-size: 0.9rem;
+      padding: 30px 10px 15px;
       text-align: center;
-      font-size: 0.85rem;
-      color: #666;
-      margin: 40px 0;
+    }
+  
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+      gap: 30px;
+    }
+  
+    .footer-column {
+      min-width: 160px;
+    }
+  
+    .footer-column h4 {
+      color: #eee;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+  
+    .footer-column a {
+      display: block;
+      color: #aaa;
+      text-decoration: none;
+      margin: 4px 0;
+      transition: color 0.2s;
+    }
+  
+    .footer-column a:hover {
+      color: #fff;
+    }
+  
+    .footer-logos {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+  
+    .footer-logos img {
+      width: 100px;
+      height: 36px;
+      object-fit: contain;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+  
+    .footer-logos img:hover {
+      opacity: 1;
+    }
+  
+    .footer-bottom {
+      margin-top: 25px;
+      font-size: 0.8rem;
+      color: #777;
     }
 
     ul {
@@ -150,7 +208,7 @@
   .module img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* or "contain" eğer tam sığsın ama kırpılmasın istiyorsan */
+    object-fit: contain;
     display: block;
   }
 /* Server List*/
@@ -159,14 +217,18 @@
   border-collapse: collapse;
   margin-top: 10px;
   cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .table-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  line-height: 10%;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  min-height: 600px;
 }
 .server-table {
-  min-width: 700px; /* Tablonun çok dar görünmesini engeller */
+  min-width: 700px;
 }
 .server-table th,
 .server-table td {
@@ -187,10 +249,12 @@
 .server-table td {
   color: var(--text-color);
   transition: background 0.2s ease-in-out;
+  min-width: 100px;
 }
 
 .server-table tbody tr {
   transition: background-color 0.2s;
+  min-width: 100px;
 }
 input[type="text"],
 select {

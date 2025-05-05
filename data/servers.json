@@ -1,14 +1,50 @@
-{
-  "rows": [
-    [
-      {"text": "Server", "color": "#4c1"},
-      {"text": "Players", "color": "#4c1"},
-      {"text": "Status", "color": "#4c1"}
-    ],
-    [
-      {"text": "Silvarya", "color": "transparent"},
-      {"text": "0", "color": "transparent"},
-      {"text": "Online", "icon": "success", "color": "transparent"}
-    ]
-  ]
-}
+[
+  {
+    "name": "Silvarya",
+    "language": "TR/EN",
+    "players": 0,
+    "ping": "157.51",
+    "location": "CH/EU",
+    "status": "Online",
+    "website": "www.silvarya.com.tr",
+    "description": "this is a private server",
+    "colour": "white",
+    "type": "Deathmatch"
+  },
+  {
+    "name": "Silvarya",
+    "language": "TR/EN",
+    "players": 0,
+    "ping": "198.59",
+    "location": "CH/EU",
+    "status": "Online",
+    "website": "www.silvarya.com.tr",
+    "description": "this is a private server",
+    "colour": "white",
+    "type": "Deathmatch"
+  },
+  {
+    "name": "Silvarya",
+    "language": "TR/EN",
+    "players": 0,
+    "ping": "160.88",
+    "location": "CH/EU",
+    "status": "Online",
+    "website": "www.silvarya.com.tr",
+    "description": "this is a private server",
+    "colour": "white",
+    "type": "Deathmatch"
+  },
+  {
+    "name": "Silvarya",
+    "language": "TR/EN",
+    "players": 0,
+    "ping": "197.41",
+    "location": "CH/EU",
+    "status": "Online",
+    "website": "www.silvarya.com.tr",
+    "description": "this is a private server",
+    "colour": "white",
+    "type": "Deathmatch"
+  }
+]
